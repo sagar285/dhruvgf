@@ -4,7 +4,7 @@ const Register = require("./connection");
 const stripe = require("stripe")("sk_test_51LQDmPSJatPmI7e760DSJDIRx3H5SnUrDEO9euEnsno859m1HDbslZ4oUFjvZxMTGxpzmy3Y8kzqaim7fIBX1Hxa00bt3rupwI")
 const uuid = require("uuid").v4;
 const app=express();
-
+require('dotenv').config()
 
 
 
@@ -64,7 +64,7 @@ return stripe.customers.create({
 }).then(function(customer) {
     stripe.charges.create({
         amount:product.price*100,
-        currency:"usd",
+        currency:"inr",
         customer:customer.id,
         receipt_email:token.email,
         description:`purchase ${product.name} subscription`
@@ -78,6 +78,6 @@ app.get("/",(req,res)=>{
 res.send("this is sagar");
 })
 
-app.listen(8080,()=>{
+app.listen(process.env.PORT|| 8080,()=>{
     console.log("server listen on 8080");
 })

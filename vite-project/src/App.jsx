@@ -1,15 +1,15 @@
 import React from 'react'
-import Funct from "./component/Funct";
-import Form from './component/Form'
 import Afterinput from "./component/Afterinput"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Input from './component/Input';
+import Payment from './component/Payment';
 const App = () => {
   return (
    <>
  <Router>
   <Routes>
-    <Route path="/" element={<Form/>}/>
-    <Route path="/payment" element={<Funct/>}/>
+    <Route path="/" element={<Input/>}/>
+    <Route path="/payment" element={<Payment/>}/>
     <Route path="/inputafter" element={<Afterinput/>}/>
   </Routes>
  </Router>
